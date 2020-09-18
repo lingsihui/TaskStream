@@ -34,10 +34,24 @@ public class Main {
         return count;
     }
 
+    public static int countDeadlinesUsingStream(ArrayList<Task> tasksData){
+        System.out.println("Calculating count using streams");
+        int count;
+        count = (int) tasksData.stream()
+                .filter((t) -> t instanceof Deadline)
+                .count();
+        return count;
+    }
     public static void printData(ArrayList<Task> tasksData) {
         for (Task t : tasksData) {
             System.out.println(t);
         }
+    }
+
+    public static void printDataUsingStream(ArrayList<Task> tasksData){
+        System.out.println("Printing data using stream");
+        tasksData.stream()
+                .forEach(System.out::println);
     }
 
     public static void printDeadlines(ArrayList<Task> tasksData) {
